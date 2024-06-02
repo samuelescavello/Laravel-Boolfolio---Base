@@ -10,9 +10,17 @@ class project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','content','slug'];
+    protected $fillable = ['title','image','content','slug'];
 
     public static function generateSlug($title){
-        return Str::slug($title, '-');
+
+        $slug = Str::slug($title, '-');
+        $count = 1;
+        while(project::where('slug',$slug)->first()){
+            $slug = Str::slug($title.'-'.$count, '-');
+            $count++;
+        }
+
+        return $slug;
     }
 }
