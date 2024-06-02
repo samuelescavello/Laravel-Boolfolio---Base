@@ -23,7 +23,12 @@ $fa-font-path: "../fonts/webfonts" !default;
         background-color: bisque;
         header{
             min-height: 70px;
-            background-color: brown;
+
+            .img-profile{
+                height: 2rem;
+                width: 2rem;
+            }
         }
+
     }
 }

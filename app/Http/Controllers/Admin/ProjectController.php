@@ -13,9 +13,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $project = project::all();
-        dd($project);
-        //return view('admin.projects.index', compact('project'));
+        $projects = project::all();
+        // dd($project);
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**

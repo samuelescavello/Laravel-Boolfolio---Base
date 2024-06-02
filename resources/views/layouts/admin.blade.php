@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- <title>{{ config('app.name', 'boolfolio') }}</title> -->
+    <title>@yield('title','boolfolio')</title>
 
 
     <!-- Fonts -->
@@ -25,7 +26,7 @@
         @include('partials.sidebar')
         <div id="wrapper">
         @include('partials.header')
-        <main class="">
+        <main class="container-fluid">
             @yield('content')
         </main>
         </div>
