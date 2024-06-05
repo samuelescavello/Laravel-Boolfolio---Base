@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\project;
 use Illuminate\Http\Request;
@@ -30,13 +31,13 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-       $form_data= $request->all();
-       $new_project = new project();
-       $new_project->title = $form_data['title'];
-       $new_project->content = $form_data['content'];
-       $new_project->slug =Project::generateSlug($new_project->title);
-       $new_project->save();
-       return redirect()->route('admin.projects.index');
+        $form_data = $request->all();
+        $new_project = new project();
+        $new_project->title = $form_data['title'];
+        $new_project->content = $form_data['content'];
+        $new_project->slug = Project::generateSlug($new_project->title);
+        $new_project->save();
+        return redirect()->route('admin.projects.index');
     }
 
     /**
@@ -52,15 +53,21 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit');
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, project $project)
+    public function update(Request $request, Project $project)
     {
-        //
+       
+        $form_data = $request->all();
+        $project->title = $form_data['title'];
+        $project->content = $form_data['content'];
+        $project->slug = Project::generateSlug($project->title);
+        $project->update();
+        return redirect()->route('admin.projects.show', $project->slug);
     }
 
     /**

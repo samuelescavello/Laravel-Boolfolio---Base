@@ -16,7 +16,6 @@
                 rows="10"></textarea>
         </div>
         <button type="submit" class="btn btn-success">crea</button>
-        <button type="submit" class="btn btn-danger">ripristina</button>
     </form>
 </section>
 @endsection
