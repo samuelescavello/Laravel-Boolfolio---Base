@@ -3,7 +3,10 @@
 
 @section('content')
 <section>
-    <h1>Projects</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Projects</h1>
+        <a href="{{route('admin.projects.create')}}" class="btn btn-primary">Create</a>
+    </div>
     <table class="table table-striped">
 
         <thead>
@@ -18,16 +21,20 @@
         </thead>
         <tbody class="table-group-divider">
             @foreach ($projects as $project)
-            <tr>
-                <td>{{$project->id}}</td>
-                <td>{{$project->title}}</td>
-                <td>{{$project->slug}}</td>
-                <td>{{$project->created_at}}</td>
-                <td>{{$project->updated_at}}</td>
-                <td>view - edit - delete</td>
-            </tr>
+                <tr>
+                    <td>{{$project->id}}</td>
+                    <td>{{$project->title}}</td>
+                    <td>{{$project->slug}}</td>
+                    <td>{{$project->created_at}}</td>
+                    <td>{{$project->updated_at}}</td>
+                    <td>
+                        <a href="{{route('admin.projects.show', $project->id)}}"> <i class="fa-solid fa-eye"></i></a>
+                        <a href="{{route('admin.projects.edit', $project->slug)}}"><i class="fa-solid fa-pen"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
             @endforeach
-            
+
         </tbody>
 
     </table>

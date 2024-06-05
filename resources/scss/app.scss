@@ -15,9 +15,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     display: flex;
 
     
-    #sidebar{
-        background-color: aquamarine;
-    }
+   
     #wrapper{
         flex-grow: 1;
         background-color: bisque;
@@ -31,4 +29,8 @@ $fa-font-path: "../fonts/webfonts" !default;
         }
 
     }
+}
+
+.table a i{
+    color: black;
 }

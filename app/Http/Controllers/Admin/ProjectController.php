@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
 use App\Models\project;
 use Illuminate\Http\Request;
 
@@ -39,7 +38,7 @@ class ProjectController extends Controller
      */
     public function show(project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
