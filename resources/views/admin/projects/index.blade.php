@@ -30,7 +30,15 @@
                     <td>
                         <a href="{{route('admin.projects.show', $project->slug)}}"> <i class="fa-solid fa-eye"></i></a>
                         <a href="{{route('admin.projects.edit', $project->slug)}}"><i class="fa-solid fa-pen"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <!-- <a href="{{route('admin.projects.destroy', $project->slug)}}"><i class="fa-solid fa-trash"></i></a> -->
+                        <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
+
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+
+                        </form>
                     </td>
                 </tr>
             @endforeach
