@@ -2,6 +2,9 @@
 @section('title', 'Projects')
 
 @section('content')
+<div>
+    <h2 class="text-center text-uppercase">dettagli progetto</h2>
+</div>
     <table class="table table-striped">
     <thead>
             <tr>

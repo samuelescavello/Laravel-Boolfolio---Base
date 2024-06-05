@@ -28,7 +28,7 @@
                     <td>{{$project->created_at}}</td>
                     <td>{{$project->updated_at}}</td>
                     <td>
-                        <a href="{{route('admin.projects.show', $project->id)}}"> <i class="fa-solid fa-eye"></i></a>
+                        <a href="{{route('admin.projects.show', $project->slug)}}"> <i class="fa-solid fa-eye"></i></a>
                         <a href="{{route('admin.projects.edit', $project->slug)}}"><i class="fa-solid fa-pen"></i></a>
                         <a href=""><i class="fa-solid fa-trash"></i></a>
                     </td>
