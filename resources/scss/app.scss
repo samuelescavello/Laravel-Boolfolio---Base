@@ -9,20 +9,23 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-#admin{
+#admin {
     height: 100vh;
     overflow: hidden;
     display: flex;
 
-    
-   
-    #wrapper{
+
+
+    #wrapper {
         flex-grow: 1;
         background-color: bisque;
-        header{
+        overflow-y: scroll;
+
+        header {
             min-height: 70px;
 
-            .img-profile{
+
+            .img-profile {
                 height: 2rem;
                 width: 2rem;
             }
@@ -31,6 +34,9 @@ $fa-font-path: "../fonts/webfonts" !default;
     }
 }
 
-.table a i{
+.table a i {
     color: black;
 }
+
+
+

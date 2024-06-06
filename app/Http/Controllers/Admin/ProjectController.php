@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\project;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class ProjectController extends Controller
 {
     /**
@@ -31,7 +31,13 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
+        // $request->validate([
+        //     'title'=>'required|max:200',
+        //     'content'=>'required',
+        // ]);
+        $form_data = $this->validation($request->all());
+
+        // $form_data = $request->all();
         $new_project = new project();
         $new_project->title = $form_data['title'];
         $new_project->content = $form_data['content'];
@@ -61,8 +67,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $form_data = $this->validation($request->all());
        
-        $form_data = $request->all();
+        // $form_data = $request->all();
         $project->title = $form_data['title'];
         $project->content = $form_data['content'];
         $project->slug = Project::generateSlug($project->title);
@@ -77,5 +84,22 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route('admin.projects.index');
+    }
+
+    public function validation($data){
+
+       
+        $validator = Validator::make($data, [
+            'title'=>'required|max:200',
+            'content'=>'required',
+        ],[
+            'title.required'=>'il titolo è obbligatorio',
+            'title.max'=>'il titolo deve avere massimo 200 caratteri',
+            'content.required'=>'il contenuto è obbligatorio',
+        ])->validate();
+
+         return $validator;
+
+        
     }
 }
