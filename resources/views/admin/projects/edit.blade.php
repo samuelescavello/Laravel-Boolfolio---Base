@@ -7,7 +7,7 @@
     </div>
     <section class="container">
     
-    <form action="{{route('admin.projects.update', $project->slug)}}" method="POST">
+    <form action="{{route('admin.projects.update', $project->slug)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
